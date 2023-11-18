@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片瀑布流布局</title>
+  <style>
+    /* 外层容器样式 */
+    .waterFlow {
+      width: 96%;
+      margin: 0 auto;
+      border: 1px solid #eee;
+      position: relative;
+    }
+
+    /* 图片样式 */
+    .waterFlow img {
+      position: absolute;
+      transition: all 0.5s;
+      width: 220px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="waterFlow" class="waterFlow">
+  </div>
+
+  <script src="index.js"></script>
+  <script>
+    const initList = () => {
+      const list = []
+      for (let i = 0; i < 41; i++) {
+        list.push(`./img/${i}.jpg`)
+      }
+      return list
+    }
+
+    new WaterFlowLayout({
+      selector: '#waterFlow',
+      list: initList()
+    })
+  </script>
+</body>
+
+</html>
